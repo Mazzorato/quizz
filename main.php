@@ -14,8 +14,8 @@ $nombreQuestions = count($questions);
 
 if (file_exists("score.txt")) {
     $scoreContent = file_get_contents("score.txt");
-    $score = (int)trim($scoreContent);
-    echo "Score précédent : $score\n";
+    
+    echo "Score précédent : $scoreContent";
 }
 
 echo "###################################################\n";
@@ -51,4 +51,3 @@ echo "###################################################\n";
 
 file_put_contents("score.txt", $score);
 echo "Le score a été sauvegardé dans score.txt\n";
-
