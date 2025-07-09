@@ -12,6 +12,12 @@ $reponses = [1, 2, 3, 1, 3];
 $score = 0;
 $nombreQuestions = count($questions);
 
+if (file_exists("score.txt")) {
+    $scoreContent = file_get_contents("score.txt");
+    $score = (int)trim($scoreContent);
+    echo "Score précédent : $score\n";
+}
+
 echo "###################################################\n";
 echo "######## Qui veux gagner des millions ?! ##########\n";
 echo "###################################################\n";
@@ -42,4 +48,7 @@ if ($reponsesUser == $reponses[$i]){
 echo "###################################################\n";
 echo "Score final :  $score\n";
 echo "###################################################\n";
+
+file_put_contents("score.txt", $score);
+echo "Le score a été sauvegardé dans score.txt\n";
 
